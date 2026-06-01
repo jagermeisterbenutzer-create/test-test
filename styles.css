@@ -232,8 +232,8 @@ h2 {
 }
 
 .button-secondary {
-  border: 1px solid rgba(75, 51, 38, 0.15);
-  background: rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(75, 51, 38, 0.21);
+  background: #fff;
   color: var(--espresso);
 }
 
