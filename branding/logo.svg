@@ -1,0 +1,13 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="256" height="256" rx="32" fill="#F6EFE7"/>
+  <circle cx="128" cy="128" r="92" stroke="#4B3326" stroke-width="12"/>
+  <path d="M82 108H158V146C158 165.882 141.882 182 122 182H118C98.1178 182 82 165.882 82 146V108Z" fill="#C86A4A"/>
+  <path d="M158 118H172C184.15 118 194 127.85 194 140C194 152.15 184.15 162 172 162H158" stroke="#4B3326" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M102 86C97 78 99 68 107 62" stroke="#7A8B72" stroke-width="8" stroke-linecap="round"/>
+  <path d="M126 82C121 74 123 64 131 58" stroke="#7A8B72" stroke-width="8" stroke-linecap="round"/>
+  <path d="M150 86C145 78 147 68 155 62" stroke="#7A8B72" stroke-width="8" stroke-linecap="round"/>
+  <path d="M82 108H158" stroke="#4B3326" stroke-width="10" stroke-linecap="round"/>
+  <path d="M92 196H164" stroke="#4B3326" stroke-width="10" stroke-linecap="round"/>
+  <path d="M74 76C90 58 108 48 128 48C148 48 166 58 182 76" stroke="#C86A4A" stroke-width="8" stroke-linecap="round"/>
+  <text x="128" y="225" text-anchor="middle" fill="#2B2521" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Harbor Roast</text>
+</svg>
