@@ -1,0 +1,19 @@
+# Harbor Roast Landing Page Archive
+
+This archive contains all necessary files to deploy the Harbor Roast coffee shop landing page.
+
+## Contents
+- `index.html`: Main landing page (open in any web browser)
+- `styles.css`: Site stylesheet
+- `branding/`: Contains logo and requirements
+
+## Usage
+1. Extract the archive:
+   ```sh
+   tar xzf harbor-roast-landing.tar.gz
+   ```
+2. All assets will be extracted to a folder. Open `index.html` in your browser or upload these files to any static web host (Netlify, Vercel, GitHub Pages, shared host, etc).
+3. All assets linked relatively—no build or backend required.
+
+---
+For questions about deployment, simply upload the extracted files and ensure `branding/logo.svg` is in the same directory structure. No additional steps are necessary.
