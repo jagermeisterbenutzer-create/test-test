@@ -6,11 +6,22 @@
     <title>Todo App</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body data-theme="light">
     <main class="todo-app" aria-labelledby="app-title">
       <header class="app-header">
-        <h1 id="app-title">Todo App</h1>
-        <p>Organize tasks, track progress, and clear completed items.</p>
+        <div>
+          <h1 id="app-title">Todo App</h1>
+          <p>Organize tasks, track progress, and clear completed items.</p>
+        </div>
+
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="Switch to dark theme"
+          aria-pressed="false"
+        >
+          <span class="theme-toggle__label">Dark theme</span>
+        </button>
       </header>
 
       <section class="todo-entry" aria-labelledby="todo-entry-title">
