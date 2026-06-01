@@ -4,38 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Harbor Roast</title>
+    <meta name="theme-color" content="#f6efe7" />
     <meta
       name="description"
       content="Harbor Roast serves small-batch coffee, seasonal drinks, and pastries in a warm coastal-inspired cafe."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
     <div class="page-shell">
       <header class="site-header">
         <a class="brand" href="#top" aria-label="Harbor Roast home">
-          <img src="branding/logo.svg" alt="Harbor Roast logo" />
+          <img src="branding/logo.svg" alt="" />
           <span>Harbor Roast</span>
         </a>
 
         <nav class="site-nav" aria-label="Primary navigation">
+          <a href="#top">Home</a>
           <a href="#menu">Menu</a>
           <a href="#about">About</a>
           <a href="#visit">Visit</a>
         </nav>
       </header>
 
-      <main id="top">
-        <section class="hero section-grid">
+      <main id="main-content">
+        <section class="hero section-grid" id="top" aria-labelledby="hero-title">
           <div class="hero-copy">
             <p class="eyebrow">Neighborhood coffee shop • Portland, Maine</p>
-            <h1>Small-batch coffee for slow mornings.</h1>
+            <h1 id="hero-title">Small-batch coffee for slow mornings.</h1>
             <p class="lead">
               Harbor Roast is a neighborhood coffee shop built around careful espresso,
               seasonal drinks, and a room that invites people to stay a little longer.
@@ -47,9 +45,9 @@
             </div>
 
             <ul class="hero-notes" aria-label="Cafe highlights">
-              <li>Warm coastal palette</li>
               <li>Espresso, slow bar, and pastries</li>
-              <li>Designed for commuters and lingering weekends</li>
+              <li>Designed for commuters, remote work, and weekends</li>
+              <li>Warm, modern interiors inspired by the coast</li>
             </ul>
           </div>
 
@@ -76,25 +74,25 @@
           </div>
         </section>
 
-        <section class="metrics-strip">
-          <div>
+        <section class="metrics-strip" aria-label="Key details">
+          <div class="metric-card">
             <strong>6:30 AM</strong>
             <span>Weekday doors open</span>
           </div>
-          <div>
+          <div class="metric-card">
             <strong>Single-Origin</strong>
             <span>Rotating pour over selection</span>
           </div>
-          <div>
+          <div class="metric-card">
             <strong>Daily Pastries</strong>
             <span>Fresh baked and easy to pair</span>
           </div>
         </section>
 
-        <section class="story section-grid" id="about">
+        <section class="story section-grid" id="about" aria-labelledby="about-title">
           <div class="section-heading">
             <p class="eyebrow">About Harbor Roast</p>
-            <h2>Craft-focused coffee with an everyday rhythm.</h2>
+            <h2 id="about-title">Craft-focused coffee with an everyday rhythm.</h2>
           </div>
 
           <div class="story-copy">
@@ -104,16 +102,41 @@
               every day.
             </p>
             <p>
-              The mockup pairs cream backgrounds, espresso text, and terracotta accents to keep
-              the page cozy, modern, and clear across desktop and mobile.
+              Morning commuters can grab a quick drink on the way in, while weekend visitors and
+              remote workers can settle in with pastries, ceramic cups, and a little extra time.
             </p>
           </div>
         </section>
 
-        <section class="menu-section" id="menu">
+        <section class="features-section" aria-labelledby="features-title">
+          <div class="section-heading compact">
+            <p class="eyebrow">Why People Return</p>
+            <h2 id="features-title">Built for daily routines, not one-time visits.</h2>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card">
+              <span class="detail-label">Careful Coffee</span>
+              <h3>Balanced espresso and a rotating slow bar.</h3>
+              <p>Classic drinks stay consistent, while single-origin pours keep the menu fresh.</p>
+            </article>
+            <article class="feature-card">
+              <span class="detail-label">Calm Space</span>
+              <h3>Soft light, warm textures, and room to linger.</h3>
+              <p>The cafe is designed to feel welcoming at 7 AM and easy to stay in past noon.</p>
+            </article>
+            <article class="feature-card">
+              <span class="detail-label">Easy Pairings</span>
+              <h3>Pastries and toasts that work with the whole menu.</h3>
+              <p>Fresh bakery staples and light food options keep the experience simple and complete.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="menu-section" id="menu" aria-labelledby="menu-title">
           <div class="section-heading compact">
             <p class="eyebrow">Menu Highlights</p>
-            <h2>Seasonal favorites and everyday staples.</h2>
+            <h2 id="menu-title">Seasonal favorites and everyday staples.</h2>
           </div>
 
           <div class="menu-grid">
@@ -150,21 +173,24 @@
           </div>
         </section>
 
-        <section class="visit-section" id="visit">
+        <section class="visit-section" id="visit" aria-labelledby="visit-title">
           <div class="visit-panel">
             <div class="section-heading compact">
               <p class="eyebrow">Visit the Cafe</p>
-              <h2>Built for early starts and easy afternoons.</h2>
+              <h2 id="visit-title">Built for early starts and easy afternoons.</h2>
             </div>
 
             <div class="visit-grid">
               <div>
                 <span class="detail-label">Address</span>
-                <p>417 Bay Street, Portland, ME 04101</p>
+                <address>417 Bay Street, Portland, ME 04101</address>
               </div>
               <div>
                 <span class="detail-label">Contact</span>
-                <p>(207) 555-0148<br />hello@harborroast.com</p>
+                <p>
+                  <a href="tel:+12075550148">(207) 555-0148</a><br />
+                  <a href="mailto:hello@harborroast.com">hello@harborroast.com</a>
+                </p>
               </div>
               <div>
                 <span class="detail-label">Hours</span>
@@ -183,6 +209,10 @@
           </div>
         </section>
       </main>
+
+      <footer class="site-footer">
+        <p>Harbor Roast serves espresso, seasonal drinks, and pastries in Portland, Maine.</p>
+      </footer>
     </div>
   </body>
 </html>
