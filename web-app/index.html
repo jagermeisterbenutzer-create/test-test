@@ -44,33 +44,19 @@
         <h2 id="todo-actions-title">Actions</h2>
 
         <div class="action-buttons" role="group" aria-label="Todo actions">
-          <button type="button">Mark All Complete</button>
-          <button type="button">Clear Completed</button>
+          <button type="button" data-action="complete-all">Mark All Complete</button>
+          <button type="button" data-action="clear-completed">Clear Completed</button>
         </div>
       </section>
 
       <section class="todo-list-section" aria-labelledby="todo-list-title">
         <div class="todo-list-header">
           <h2 id="todo-list-title">Todo List</h2>
-          <p aria-live="polite">0 tasks remaining</p>
+          <p class="todo-count" aria-live="polite">0 tasks remaining</p>
         </div>
 
-        <ul class="todo-list" aria-label="Todo items">
-          <li class="todo-item">
-            <label>
-              <input type="checkbox" name="todo-item-1" />
-              <span>Review project structure</span>
-            </label>
-            <button type="button" aria-label="Delete Review project structure">Delete</button>
-          </li>
-          <li class="todo-item">
-            <label>
-              <input type="checkbox" name="todo-item-2" />
-              <span>Create semantic todo markup</span>
-            </label>
-            <button type="button" aria-label="Delete Create semantic todo markup">Delete</button>
-          </li>
-        </ul>
+        <ul class="todo-list" aria-label="Todo items"></ul>
+        <p class="todo-empty" hidden>No todos yet. Add one to get started.</p>
       </section>
     </main>
 
