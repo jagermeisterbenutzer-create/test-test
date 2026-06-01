@@ -3,13 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Web App</title>
+    <title>Todo App</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main>
-      <h1>Web App</h1>
-      <p>Local project structure initialized.</p>
+    <main class="todo-app" aria-labelledby="app-title">
+      <header class="app-header">
+        <h1 id="app-title">Todo App</h1>
+        <p>Organize tasks, track progress, and clear completed items.</p>
+      </header>
+
+      <section class="todo-entry" aria-labelledby="todo-entry-title">
+        <h2 id="todo-entry-title">Add a Todo</h2>
+
+        <form class="todo-form" aria-label="Add a new todo">
+          <label for="todo-input">Task</label>
+          <input
+            id="todo-input"
+            name="todo"
+            type="text"
+            placeholder="What needs to be done?"
+            autocomplete="off"
+          />
+          <button type="submit">Add Todo</button>
+        </form>
+      </section>
+
+      <section class="todo-toolbar" aria-labelledby="todo-actions-title">
+        <h2 id="todo-actions-title">Actions</h2>
+
+        <div class="action-buttons" role="group" aria-label="Todo actions">
+          <button type="button">Mark All Complete</button>
+          <button type="button">Clear Completed</button>
+        </div>
+      </section>
+
+      <section class="todo-list-section" aria-labelledby="todo-list-title">
+        <div class="todo-list-header">
+          <h2 id="todo-list-title">Todo List</h2>
+          <p aria-live="polite">0 tasks remaining</p>
+        </div>
+
+        <ul class="todo-list" aria-label="Todo items">
+          <li class="todo-item">
+            <label>
+              <input type="checkbox" name="todo-item-1" />
+              <span>Review project structure</span>
+            </label>
+            <button type="button" aria-label="Delete Review project structure">Delete</button>
+          </li>
+          <li class="todo-item">
+            <label>
+              <input type="checkbox" name="todo-item-2" />
+              <span>Create semantic todo markup</span>
+            </label>
+            <button type="button" aria-label="Delete Create semantic todo markup">Delete</button>
+          </li>
+        </ul>
+      </section>
     </main>
 
     <script src="app.js"></script>
