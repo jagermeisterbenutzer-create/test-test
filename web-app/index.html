@@ -4,9 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo App</title>
+    <script>
+      (() => {
+        const storageKey = "todo-app-theme";
+        const storedTheme = (() => {
+          try {
+            return window.localStorage.getItem(storageKey);
+          } catch {
+            return null;
+          }
+        })();
+        const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const initialTheme = storedTheme || (systemPrefersDark ? "dark" : "light");
+
+        document.documentElement.dataset.theme = initialTheme;
+      })();
+    </script>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body data-theme="light">
+  <body>
     <main class="todo-app" aria-labelledby="app-title">
       <header class="app-header">
         <div>

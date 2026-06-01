@@ -38,7 +38,7 @@
   --radius-sm: 14px;
 }
 
-body[data-theme="dark"] {
+:root[data-theme="dark"] {
   color-scheme: dark;
   --espresso: #f5e8dc;
   --cream: #15181c;

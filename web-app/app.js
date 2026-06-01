@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const root = document.documentElement;
   const body = document.body;
   const themeToggle = document.querySelector(".theme-toggle");
   const themeLabel = themeToggle?.querySelector(".theme-toggle__label");
@@ -10,9 +11,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const completeAllButton = document.querySelector('[data-action="complete-all"]');
   const clearCompletedButton = document.querySelector('[data-action="clear-completed"]');
   const storageKey = "todo-app-theme";
-  const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const storedTheme = window.localStorage.getItem(storageKey);
-  const initialTheme = storedTheme || (systemPrefersDark ? "dark" : "light");
+  const systemThemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  const getStoredTheme = () => {
+    try {
+      return window.localStorage.getItem(storageKey);
+    } catch {
+      return null;
+    }
+  };
+  const setStoredTheme = (theme) => {
+    try {
+      window.localStorage.setItem(storageKey, theme);
+    } catch {
+      // Ignore storage failures and keep the in-memory theme.
+    }
+  };
+  const initialTheme = root.dataset.theme || getStoredTheme() || (systemThemeQuery.matches ? "dark" : "light");
   let nextTodoId = 3;
   let todos = [
     { id: 1, text: "Review project structure", completed: false },
@@ -22,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const applyTheme = (theme) => {
     const isDark = theme === "dark";
 
+    root.dataset.theme = theme;
     body.dataset.theme = theme;
 
     if (themeToggle) {
@@ -88,8 +103,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextTheme = body.dataset.theme === "dark" ? "light" : "dark";
 
     applyTheme(nextTheme);
-    window.localStorage.setItem(storageKey, nextTheme);
+    setStoredTheme(nextTheme);
   });
+
+  const handleSystemThemeChange = (event) => {
+    if (getStoredTheme()) {
+      return;
+    }
+
+    applyTheme(event.matches ? "dark" : "light");
+  };
+
+  if (typeof systemThemeQuery.addEventListener === "function") {
+    systemThemeQuery.addEventListener("change", handleSystemThemeChange);
+  } else if (typeof systemThemeQuery.addListener === "function") {
+    systemThemeQuery.addListener(handleSystemThemeChange);
+  }
 
   todoForm?.addEventListener("submit", (event) => {
     event.preventDefault();
