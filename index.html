@@ -11,7 +11,7 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body data-theme="light">
     <a class="skip-link" href="#main-content">Skip to content</a>
 
     <div class="page-shell">
@@ -27,6 +27,15 @@
           <a href="#about">About</a>
           <a href="#visit">Visit</a>
         </nav>
+
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="Switch to dark theme"
+          aria-pressed="false"
+        >
+          <span class="theme-toggle__label">Dark mode</span>
+        </button>
       </header>
 
       <main id="main-content">
@@ -214,5 +223,49 @@
         <p>Harbor Roast serves espresso, seasonal drinks, and pastries in Portland, Maine.</p>
       </footer>
     </div>
+
+    <script>
+      (() => {
+        const storageKey = "harbor-roast-theme";
+        const body = document.body;
+        const themeToggle = document.querySelector(".theme-toggle");
+        const themeToggleLabel = themeToggle?.querySelector(".theme-toggle__label");
+        const themeColor = document.querySelector('meta[name="theme-color"]');
+        const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const storedTheme = window.localStorage.getItem(storageKey);
+        const initialTheme = storedTheme || (systemPrefersDark ? "dark" : "light");
+
+        const applyTheme = (theme) => {
+          const isDark = theme === "dark";
+
+          body.dataset.theme = theme;
+
+          if (themeColor) {
+            themeColor.setAttribute("content", isDark ? "#111417" : "#f6efe7");
+          }
+
+          if (themeToggle) {
+            themeToggle.setAttribute("aria-pressed", String(isDark));
+            themeToggle.setAttribute(
+              "aria-label",
+              isDark ? "Switch to light theme" : "Switch to dark theme"
+            );
+          }
+
+          if (themeToggleLabel) {
+            themeToggleLabel.textContent = isDark ? "Light mode" : "Dark mode";
+          }
+        };
+
+        applyTheme(initialTheme);
+
+        themeToggle?.addEventListener("click", () => {
+          const nextTheme = body.dataset.theme === "dark" ? "light" : "dark";
+
+          applyTheme(nextTheme);
+          window.localStorage.setItem(storageKey, nextTheme);
+        });
+      })();
+    </script>
   </body>
 </html>

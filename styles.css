@@ -1,4 +1,5 @@
 :root {
+  color-scheme: light;
   --espresso: #4b3326;
   --cream: #f6efe7;
   --terracotta: #c86a4a;
@@ -8,9 +9,70 @@
   --surface: rgba(255, 255, 255, 0.58);
   --shadow: 0 24px 60px rgba(43, 37, 33, 0.12);
   --focus-ring: 0 0 0 3px rgba(200, 106, 74, 0.24);
+  --body-bg:
+    radial-gradient(circle at top left, rgba(200, 106, 74, 0.22), transparent 30%),
+    radial-gradient(circle at top right, rgba(122, 139, 114, 0.18), transparent 28%),
+    linear-gradient(180deg, #fcf7f2 0%, var(--cream) 50%, #f4ecdf 100%);
+  --panel-border: rgba(75, 51, 38, 0.08);
+  --text-muted: rgba(43, 37, 33, 0.82);
+  --text-soft: rgba(43, 37, 33, 0.8);
+  --text-nav: rgba(43, 37, 33, 0.78);
+  --text-subtle: rgba(43, 37, 33, 0.72);
+  --button-secondary-bg: #fff;
+  --button-secondary-border: rgba(75, 51, 38, 0.21);
+  --button-secondary-hover: rgba(255, 255, 255, 0.7);
+  --visual-overlay-start: rgba(75, 51, 38, 0.08);
+  --visual-overlay-end: rgba(75, 51, 38, 0);
+  --visual-bg-end: rgba(239, 227, 212, 0.96);
+  --visual-bg-start: rgba(255, 248, 241, 0.72);
+  --photo-glow: rgba(255, 247, 239, 0.26);
+  --photo-content-bg: rgba(255, 250, 246, 0.68);
+  --floating-card-bg: rgba(255, 252, 248, 0.88);
+  --feature-card-bg: rgba(255, 251, 247, 0.76);
+  --accent-terracotta-start: rgba(200, 106, 74, 0.22);
+  --accent-sage-start: rgba(122, 139, 114, 0.2);
+  --accent-cream-start: rgba(246, 239, 231, 0.98);
+  --accent-card-end: rgba(255, 255, 255, 0.58);
   --radius-lg: 28px;
   --radius-md: 20px;
   --radius-sm: 14px;
+}
+
+body[data-theme="dark"] {
+  color-scheme: dark;
+  --espresso: #f5e8dc;
+  --cream: #15181c;
+  --terracotta: #e7906f;
+  --sage: #9ab394;
+  --charcoal: #edf2f7;
+  --sand: #22282f;
+  --surface: rgba(18, 22, 27, 0.8);
+  --shadow: 0 28px 72px rgba(0, 0, 0, 0.35);
+  --focus-ring: 0 0 0 3px rgba(231, 144, 111, 0.28);
+  --body-bg:
+    radial-gradient(circle at top left, rgba(231, 144, 111, 0.16), transparent 28%),
+    radial-gradient(circle at top right, rgba(154, 179, 148, 0.12), transparent 26%),
+    linear-gradient(180deg, #111417 0%, #171c21 52%, #0f1317 100%);
+  --panel-border: rgba(245, 232, 220, 0.1);
+  --text-muted: rgba(237, 242, 247, 0.82);
+  --text-soft: rgba(237, 242, 247, 0.8);
+  --text-nav: rgba(237, 242, 247, 0.76);
+  --text-subtle: rgba(237, 242, 247, 0.7);
+  --button-secondary-bg: rgba(255, 255, 255, 0.04);
+  --button-secondary-border: rgba(245, 232, 220, 0.18);
+  --button-secondary-hover: rgba(255, 255, 255, 0.09);
+  --visual-overlay-start: rgba(0, 0, 0, 0.12);
+  --visual-overlay-end: rgba(0, 0, 0, 0);
+  --visual-bg-start: rgba(36, 42, 49, 0.82);
+  --visual-bg-end: rgba(21, 27, 33, 0.96);
+  --photo-glow: rgba(231, 144, 111, 0.12);
+  --photo-content-bg: rgba(20, 25, 31, 0.78);
+  --floating-card-bg: rgba(18, 23, 29, 0.9);
+  --feature-card-bg: rgba(255, 255, 255, 0.04);
+  --accent-terracotta-start: rgba(231, 144, 111, 0.2);
+  --accent-sage-start: rgba(154, 179, 148, 0.18);
+  --accent-cream-start: rgba(245, 232, 220, 0.08);
+  --accent-card-end: rgba(255, 255, 255, 0.03);
 }
 
 * {
@@ -24,11 +86,9 @@ html {
 body {
   margin: 0;
   font-family: Inter, "Segoe UI", Arial, sans-serif;
-  background:
-    radial-gradient(circle at top left, rgba(200, 106, 74, 0.22), transparent 30%),
-    radial-gradient(circle at top right, rgba(122, 139, 114, 0.18), transparent 28%),
-    linear-gradient(180deg, #fcf7f2 0%, var(--cream) 50%, #f4ecdf 100%);
+  background: var(--body-bg);
   color: var(--charcoal);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 :focus-visible {
@@ -49,7 +109,7 @@ img {
 address {
   font-style: normal;
   line-height: 1.7;
-  color: rgba(43, 37, 33, 0.82);
+  color: var(--text-muted);
 }
 
 .skip-link {
@@ -82,8 +142,8 @@ address {
   gap: 24px;
   padding: 18px 22px;
   margin-bottom: 32px;
-  background: rgba(246, 239, 231, 0.72);
-  border: 1px solid rgba(75, 51, 38, 0.08);
+  background: var(--surface);
+  border: 1px solid var(--panel-border);
   border-radius: 999px;
   backdrop-filter: blur(12px);
   position: sticky;
@@ -108,8 +168,32 @@ address {
 .site-nav {
   display: inline-flex;
   gap: 20px;
-  color: rgba(43, 37, 33, 0.78);
+  color: var(--text-nav);
   font-weight: 500;
+}
+
+.theme-toggle {
+  flex-shrink: 0;
+  min-height: 46px;
+  padding: 0 18px;
+  border: 1px solid var(--button-secondary-border);
+  border-radius: 999px;
+  background: var(--button-secondary-bg);
+  color: var(--espresso);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  transform: translateY(-1px);
+  background: var(--button-secondary-hover);
+}
+
+.theme-toggle[aria-pressed="true"] {
+  border-color: rgba(231, 144, 111, 0.34);
 }
 
 .site-nav a:hover,
@@ -139,7 +223,7 @@ main {
 .story,
 .metrics-strip {
   background: var(--surface);
-  border: 1px solid rgba(75, 51, 38, 0.08);
+  border: 1px solid var(--panel-border);
   box-shadow: var(--shadow);
 }
 
@@ -194,7 +278,7 @@ h2 {
 .photo-content p,
 .visit-grid p {
   line-height: 1.7;
-  color: rgba(43, 37, 33, 0.82);
+  color: var(--text-muted);
 }
 
 .lead {
@@ -232,14 +316,14 @@ h2 {
 }
 
 .button-secondary {
-  border: 1px solid rgba(75, 51, 38, 0.21);
-  background: #fff;
+  border: 1px solid var(--button-secondary-border);
+  background: var(--button-secondary-bg);
   color: var(--espresso);
 }
 
 .button-secondary:hover,
 .button-secondary:focus-visible {
-  background: rgba(255, 255, 255, 0.7);
+  background: var(--button-secondary-hover);
 }
 
 .hero-notes {
@@ -248,7 +332,7 @@ h2 {
   padding: 0;
   margin: 28px 0 0;
   list-style: none;
-  color: rgba(43, 37, 33, 0.8);
+  color: var(--text-soft);
 }
 
 .hero-notes li {
@@ -274,8 +358,8 @@ h2 {
   border-radius: 36px;
   overflow: hidden;
   background:
-    linear-gradient(160deg, rgba(75, 51, 38, 0.08), rgba(75, 51, 38, 0) 40%),
-    linear-gradient(180deg, rgba(255, 248, 241, 0.72), rgba(239, 227, 212, 0.96));
+    linear-gradient(160deg, var(--visual-overlay-start), var(--visual-overlay-end) 40%),
+    linear-gradient(180deg, var(--visual-bg-start), var(--visual-bg-end));
 }
 
 .photo-card {
@@ -298,7 +382,7 @@ h2 {
   width: 320px;
   height: 320px;
   border-radius: 50%;
-  background: rgba(255, 247, 239, 0.26);
+  background: var(--photo-glow);
   filter: blur(18px);
 }
 
@@ -309,7 +393,7 @@ h2 {
   bottom: 28px;
   padding: 24px;
   border-radius: 22px;
-  background: rgba(255, 250, 246, 0.68);
+  background: var(--photo-content-bg);
   backdrop-filter: blur(10px);
 }
 
@@ -334,8 +418,8 @@ h2 {
   max-width: 240px;
   padding: 18px 18px 20px;
   border-radius: 20px;
-  background: rgba(255, 252, 248, 0.88);
-  border: 1px solid rgba(75, 51, 38, 0.08);
+  background: var(--floating-card-bg);
+  border: 1px solid var(--panel-border);
   box-shadow: 0 18px 35px rgba(43, 37, 33, 0.11);
 }
 
@@ -367,7 +451,7 @@ h2 {
 }
 
 .metrics-strip span {
-  color: rgba(43, 37, 33, 0.72);
+  color: var(--text-subtle);
 }
 
 .story {
@@ -388,7 +472,7 @@ h2 {
 .menu-section {
   padding: 40px;
   background: var(--surface);
-  border: 1px solid rgba(75, 51, 38, 0.08);
+  border: 1px solid var(--panel-border);
   box-shadow: var(--shadow);
   border-radius: var(--radius-lg);
 }
@@ -402,8 +486,8 @@ h2 {
 .feature-card {
   padding: 24px;
   border-radius: 22px;
-  background: rgba(255, 251, 247, 0.76);
-  border: 1px solid rgba(75, 51, 38, 0.07);
+  background: var(--feature-card-bg);
+  border: 1px solid var(--panel-border);
 }
 
 .feature-card h3 {
@@ -415,7 +499,7 @@ h2 {
 .site-footer p {
   margin: 0;
   line-height: 1.7;
-  color: rgba(43, 37, 33, 0.82);
+  color: var(--text-muted);
 }
 
 .menu-grid {
@@ -428,19 +512,19 @@ h2 {
   min-height: 210px;
   padding: 24px;
   border-radius: 22px;
-  border: 1px solid rgba(75, 51, 38, 0.07);
+  border: 1px solid var(--panel-border);
 }
 
 .accent-terracotta {
-  background: linear-gradient(180deg, rgba(200, 106, 74, 0.22), rgba(255, 255, 255, 0.5));
+  background: linear-gradient(180deg, var(--accent-terracotta-start), var(--accent-card-end));
 }
 
 .accent-sage {
-  background: linear-gradient(180deg, rgba(122, 139, 114, 0.2), rgba(255, 255, 255, 0.52));
+  background: linear-gradient(180deg, var(--accent-sage-start), var(--accent-card-end));
 }
 
 .accent-cream {
-  background: linear-gradient(180deg, rgba(246, 239, 231, 0.98), rgba(255, 255, 255, 0.58));
+  background: linear-gradient(180deg, var(--accent-cream-start), var(--accent-card-end));
 }
 
 .menu-card h3 {
@@ -527,6 +611,10 @@ h2 {
   .site-nav {
     flex-wrap: wrap;
     gap: 14px;
+  }
+
+  .theme-toggle {
+    width: 100%;
   }
 
   .hero-copy {
